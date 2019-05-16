@@ -8,11 +8,26 @@ class PostList extends Component {
     this.props.fetchPosts()
   }
   render() {
-    return <div>Post List</div>
+    const { posts } = this.props
+    return (
+      <div className={'ui relaxed divided list'}>
+        {posts.map(post => (
+          <div className={'item'} key={post.id}>
+            <i className={'large middle aligned icon user'} />
+            <div className={'content'}>
+              <div className={'description'}>
+                <h2>{post.title}</h2>
+                <p>{post.body}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )
   }
 }
 
-const mapStateToProps = state => ({})
+const mapStateToProps = ({ posts }) => ({ posts })
 const mapDispatchToProps = dispatch =>
   bindActionCreators(PostsActions, dispatch)
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as PostsActions from '../../../store/actions/posts'
+import UserHeader from '../../Users/UserHeader'
 
 class PostList extends Component {
   componentDidMount() {
@@ -19,6 +20,7 @@ class PostList extends Component {
                 <h2>{post.title}</h2>
                 <p>{post.body}</p>
               </div>
+              <UserHeader userId={post.userId} />
             </div>
           </div>
         ))}

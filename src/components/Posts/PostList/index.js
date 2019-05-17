@@ -6,7 +6,7 @@ import UserHeader from '../../Users/UserHeader'
 
 class PostList extends Component {
   componentDidMount() {
-    this.props.fetchPosts()
+    this.props.fetchPostAndUsers()
   }
   render() {
     const { posts } = this.props

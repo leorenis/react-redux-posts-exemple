@@ -5,10 +5,6 @@ import { bindActionCreators } from 'redux'
 import * as UsersActions from '../../../store/actions/users'
 
 class UserHeader extends React.Component {
-  componentDidMount() {
-    const { userId, fetchUser } = this.props
-    fetchUser(userId)
-  }
   render() {
     const { user } = this.props
     if (!user) return null
@@ -18,8 +14,7 @@ class UserHeader extends React.Component {
 const mapStateToProps = ({ users }, { userId }) => ({
   user: users.find(u => u.id === userId)
 })
-const mapDispatchToProps = dispatch =>
-  bindActionCreators(UsersActions, dispatch)
+const mapDispatchToProps = dispatch => bindActionCreators(UsersActions, dispatch)
 export default connect(
   mapStateToProps,
   mapDispatchToProps
